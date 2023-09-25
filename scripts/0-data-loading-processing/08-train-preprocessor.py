@@ -9,7 +9,7 @@ from sklearn.pipeline import make_pipeline
 import pandas as pd
 import numpy as np
 
-from florabert import config, utils
+from module.florabert import config, utils
 
 
 DATA_DIR = config.data_final / "nam_data"
