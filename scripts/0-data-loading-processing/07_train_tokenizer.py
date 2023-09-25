@@ -2,7 +2,7 @@
 """
 from tokenizers import ByteLevelBPETokenizer
 
-from florabert import config
+from module.florabert import config
 
 
 SETTINGS = config.settings["transformer"]["tokenizer"]
