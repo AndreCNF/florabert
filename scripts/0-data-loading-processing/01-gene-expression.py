@@ -1,4 +1,4 @@
-from florabert import config
+from module.florabert import config
 import pandas as pd
 
 
