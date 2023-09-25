@@ -55,6 +55,13 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
 
 **Data from step 2 using Refseq links**:
 
-- Install zip file from link --> https://drive.google.com/file/d/1-0V8grOh1zh4-4EisXy_fxqQeAHuySdu/view?usp=drive_link  (contains data folder after step 2 using refseq links)
+- Install zip file from [here](https://drive.google.com/file/d/1-0V8grOh1zh4-4EisXy_fxqQeAHuySdu/view?usp=drive_link) --> (contains data folder after step 2 using refseq links)
 - unzip and add to florabert, if needed
 - further testing required
+**Data from step 2 using Ensembl links**:
+
+- Install zip file from [here](https://drive.google.com/file/d/11_ZOm3l7sakyAwxhiEGYsaj3if1YK8Cu/view?usp=drive_link) --> (contains data folder after step 2 using refseq links)
+- unzip and add to florabert, if needed
+- further testing required
+
+Last 2 steps, if used together, need to be merged to get the correct folder structure
