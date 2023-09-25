@@ -13,8 +13,8 @@
 import os
 import argparse
 import pandas as pd
-from florabert import config
-from florabert import gene_db_io
+from module.florabert import config
+from module.florabert import gene_db_io
 
 
 if __name__ == "__main__":
