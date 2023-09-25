@@ -14,7 +14,7 @@
 import pickle
 import pandas as pd
 import numpy as np
-from florabert import config
+from module.florabert import config
 from tqdm import tqdm
 
 np.random.seed(47)
