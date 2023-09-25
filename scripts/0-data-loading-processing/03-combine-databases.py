@@ -11,7 +11,7 @@
 """
 import os
 import pandas as pd
-from florabert import config
+from module.florabert import config
 from Bio import SeqIO
 from tqdm import tqdm
 
