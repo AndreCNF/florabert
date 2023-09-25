@@ -53,6 +53,8 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
   2. `language-model-finetuned`: Further trained on just maize promoter sequences
   3. `prediction-model`: Fine-tuned on the multitask regression problem
 
+---
+
 **Data from step 2 using Refseq links**:
 
 - Install zip file from [here](https://drive.google.com/file/d/1-0V8grOh1zh4-4EisXy_fxqQeAHuySdu/view?usp=drive_link) --> (contains data folder after step 2 using refseq links)
