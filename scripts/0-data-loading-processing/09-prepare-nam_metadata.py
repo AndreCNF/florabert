@@ -3,7 +3,7 @@ import re
 
 import pandas as pd
 
-from florabert import config
+from module.florabert import config
 
 
 def prepare_col(col):
