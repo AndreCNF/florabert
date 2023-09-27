@@ -65,8 +65,14 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
 
 **Data from step 2 using Ensembl links**:
 
-- Install zip file from [here](https://drive.google.com/file/d/11_ZOm3l7sakyAwxhiEGYsaj3if1YK8Cu/view?usp=drive_link) --> (contains data folder after step 2 using refseq links)
+- Install zip file from [here](https://drive.google.com/file/d/11_ZOm3l7sakyAwxhiEGYsaj3if1YK8Cu/view?usp=drive_link) --> (contains data folder after step 2 using ensembl links)
 - unzip and add to florabert, if needed
 - further testing required
 
-Last 2 steps, if used together, need to be merged to get the correct folder structure
+**Data from step 2 using Maize NAM links**:
+
+- Install zip file from [here](https://drive.google.com/file/d/1xK8w0h_ttmMV0TBDSStKYt_DHeYh0F3q/view?usp=sharing) --> (contains data folder after step 2 using maize_nam (from MaizeGDB FTP; only NAM lines) links)
+- unzip and add to florabert, if needed
+- further testing required
+
+Last 3 steps, if used together, need to be merged to get the correct folder structure
