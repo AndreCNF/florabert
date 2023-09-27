@@ -49,7 +49,7 @@ def combine_data(database, suffix):
 
 def add_b73(df: pd.DataFrame) -> pd.DataFrame:
     """Add B73 to combined dataframe."""
-    b73_dir = config.data_processed / "Maize_nam" / "zmb73" # replace "Maize_nam" to "Maize" and "zmb73" to "Zmb73" if needed 
+    b73_dir = config.data_processed / "Maize_nam" / "zmb73" # replace "Maize_nam" with "Maize" and "zmb73" with "Zmb73" if needed 
     species = "zm-b73"
     file_path = list(b73_dir.glob("*.fa"))[0]
     # Define the four columns of the df
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         os.mkdir(save_path)
 
     # Combine All the databases
-    for database in ["Maize_nam", "Ensembl", "Refseq"]:  # Add these if necessary'Maize', 'Maize_addition',
+    for database in ["Maize_nam", "Ensembl", "Refseq"]:  # Add these if necessary 'Maize', 'Maize_addition',
         suffix = ".fna" if database == "Refseq" else ".fa"
         combined_df = combine_data(database, suffix)
         if database == "Maize_nam":
