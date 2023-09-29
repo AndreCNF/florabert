@@ -84,3 +84,15 @@ Previous 3 steps, if used together, need to be merged to get the correct folder 
 - Install zip file from [here](https://drive.google.com/file/d/1hNzlP4xHU0fLT5GxHUWKYyoXthsEcXH7/view?usp=sharing) --> (contains data folder after step 3)
 - unzip and add to florabert, if needed
 - further testing required
+
+**Data from step 5**:
+
+- Install file from [here](https://drive.google.com/file/d/1iTrmHDawZpi33Cv5GsgYei4H5xz06yMs/view?usp=sharing) --> (contains data folder after step 5)
+- add to florabert, if needed
+- further testing required
+
+**Data from step 6**:
+
+- Install file from [here](https://drive.google.com/file/d/1c-JXUcC4mnepp_SV5O0Rheb3qbN3LaZf/view?usp=sharing) --> (contains data folder after step 6)
+- add to florabert, if needed
+- further testing required
