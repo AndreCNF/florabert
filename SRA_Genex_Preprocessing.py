@@ -31,7 +31,7 @@ refgen_data = [
 ]
 
 # Read SRA data from a TSV file
-sra_df = pd.read_csv(r"C:\Users\GURDARSH VIRK\OneDrive\Desktop\PS 3-1 FloraBERT\filereport_read_run_PRJEB36014_tsv.txt", sep="\t")
+sra_df = pd.read_csv(r"filereport_read_run_PRJEB36014_tsv.txt", sep="\t")
 
 # Create a DataFrame for reference genomes
 refgen_df = pd.DataFrame(refgen_data, columns=["refgen", "annot"])
