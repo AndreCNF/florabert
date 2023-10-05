@@ -5,7 +5,7 @@ from tokenizers import ByteLevelBPETokenizer
 from module.florabert import config
 
 
-SETTINGS = config.settings["transformer"]["tokenizer"]
+SETTINGS = config.settings["tokenizer"] # previously config.settings["transformer"]["tokenizer"]
 TOKENIZER_DIR = config.models / "byte-level-bpe-tokenizer"
 if not TOKENIZER_DIR.exists():
     TOKENIZER_DIR.mkdir()
