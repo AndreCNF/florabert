@@ -25,7 +25,7 @@ from module.florabert import config, utils, dataio
 
 
 tqdm.pandas()
-pandarallel.initialize(progress_bar=True, verbose=1)
+# pandarallel.initialize(progress_bar=True, verbose=1)
 
 
 GENEX_DIR = (
@@ -87,7 +87,8 @@ def filter_genex_values(df: pd.DataFrame) -> pd.DataFrame:
     #             return True
     #     return False
     # return df.copy()[df.apply(keep_row, axis=1)]
-    pseudogenes = find_pseudogenes(df)
+    # pseudogenes = find_pseudogenes(df)
+    pseudogenes = (df[config.tissues] < 1).all(axis=1)
     print(pseudogenes)
     return df.loc[~pseudogenes, :].copy()  # .copy() avoids chained assignment
 
