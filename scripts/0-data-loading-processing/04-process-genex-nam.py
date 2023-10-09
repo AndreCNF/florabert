@@ -41,7 +41,7 @@ OUTDIR_TRANSFORMER = config.data_final / "transformer" / "genex" / "nam"
 
 
 def load_cultivar_seqs(cultivar: str):
-    path = SEQ_DIR / f"zm{cultivar.lower()}" f"Zm-{cultivar}"
+    path = SEQ_DIR / f"zm{cultivar.lower()}" / f"Zm-{cultivar}"
     files = list(path.glob("*.fa"))
     if len(files) >= 1:
         fname = files[0]
