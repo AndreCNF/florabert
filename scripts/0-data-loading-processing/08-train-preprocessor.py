@@ -23,28 +23,37 @@ def load_data(args):
     data = data.loc[data.fold != "test", tissues]
     if args.threshold:
         cond = reduce(
-            lambda x, y: x & y, [data[tiss] >= args.threshold for tiss in tissues]
+            lambda x, y: x | y, [data[tiss] >= args.threshold for tiss in tissues]
         )
         data = data[cond]
     return data
 
+def apply_log1p_with_offset(x, offset):
+    # Apply log1p with an offset to handle non-positive values
+    if offset is not None:
+        return np.log1p(np.maximum(x, 0.0)) + offset
+    else:
+        return x
 
 def load_preprocessor(args):
     steps = []
     if args.log_offset:
-        steps.append(
-            FunctionTransformer(
-                func=partial(np.vectorize(operator.add), args.log_offset)
-            )
-        )
-    steps += [
-        FunctionTransformer(func=np.log),
-        StandardScaler(with_mean=True, with_std=True),
-    ]
+        # If you want to apply log and add an offset, you can do it for the entire DataFrame
+        steps.append(FunctionTransformer(func=partial(np.add, args.log_offset)))
+        
+    log_offset = args.log_offset if hasattr(args, 'log_offset') else 0.0
+
+    # You may or may not need StandardScaler, depending on your specific use case
+    steps.append(FunctionTransformer(func=apply_log1p_with_offset, kw_args={"offset": log_offset}, validate=False))
+    # if args.scale_data:
+    steps.append(StandardScaler(with_mean=True, with_std=True))
+
     return make_pipeline(*steps)
 
 
+
 def fit_preprocessor(data, preprocessor):
+    print(data)
     return preprocessor.fit(data)
 
 
