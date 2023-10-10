@@ -49,7 +49,6 @@ def main():
     data_collator = dataio.load_data_collator(
         "language-model",
         tokenizer=tokenizer,
-        mlm_prob=config.settings["training"]["pretrain"].pop("mlm_prob"),
     )
 
     training_settings = config.settings["training"]["pretrain"]
