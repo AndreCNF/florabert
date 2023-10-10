@@ -304,7 +304,7 @@ def get_args(
     eval_data=None,
     test_data="all_seqs_test.txt",
     output_dir=models / "transformer" / "language-model",
-    model_name=None,
+    model_name="roberta-lm",
     pretrained_model=None,
     tokenizer_dir=None,
     log_offset=None,
