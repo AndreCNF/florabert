@@ -216,6 +216,7 @@ def make_trainer(
     hyperparameter_search: bool = False,
     model_init: callable = None,
     metrics: Union[list, str] = None,
+    mlm_prob: int = 0.15,
     **training_kwargs,
 ) -> Trainer:
     """Make a Huggingface transformers Trainer.
@@ -254,7 +255,6 @@ def make_trainer(
         prediction_loss_only=False,
         load_best_model_at_end=True,
         metric_for_best_model="eval_loss",
-        evaluate_during_training=True,
         do_eval=True,
         **training_kwargs,
     )
@@ -399,6 +399,7 @@ class MyTrainingArguments(TrainingArguments):
     warmup_steps: int = field(default=500)
     num_cooldown_steps: int = field(default=500)
     num_param_groups: int = field(default=2)
+    evaluate_during_training: bool = field(default = True)
     param_group_size: int = field(default=None)
 
 
