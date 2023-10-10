@@ -27,7 +27,7 @@ training:
         fp16: true
         logging_steps: 50
         eval_steps: 200
-        save_steps: 100
+        save_steps: 400
         save_total_limit: 20
         gradient_accumulation_steps: 25
         learning_rate: 1.e-4
