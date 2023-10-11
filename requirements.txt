@@ -1,18 +1,18 @@
-beautifulsoup4~=4.9
-biopython~=1.78
+beautifulsoup4
+biopython
 boto3
-click~=7.1
+click
 -e ./module
-ipython~=7.18
-joblib~=0.16
-matplotlib~=3.3
-numpy~=1.19
-pandas~=1.1
+ipython
+joblib
+matplotlib
+numpy
+pandas
 PyYAML
 regex
 requests
 scikit-learn
-scipy~=1.5
+scipy
 tensorboard
 tokenizers
 torch
