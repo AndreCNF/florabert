@@ -3,8 +3,8 @@ Pretraining on masked language model task.
 """
 import torch
 
-from florabert import config, utils, training, dataio
-from florabert import transformers as tr
+from module.florabert import config, utils, training, dataio
+from module.florabert import transformers as tr
 
 DATA_DIR = config.data_final / "transformer" / "seq"
 TOKENIZER_DIR = config.models / "byte-level-bpe-tokenizer"
