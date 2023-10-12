@@ -475,7 +475,7 @@ class DataCollatorForDNABERT(DataCollatorForLanguageModeling):
     pass
 
 
-def load_data_collator(model_type: str, tokenizer=None, mlm_prob=None):
+def load_data_collator(model_type: str, tokenizer=None, mlm_prob=0.15):
     if model_type == "language-model":
         assert (
             tokenizer is not None
