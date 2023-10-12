@@ -57,7 +57,7 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
 
 ### Personal Updates on Forked Repo:
 
-The following updates have been done using python scripts under [`0-data-loading-processing/`](https://github.com/gurveervirk/florabert/tree/master/scripts/0-data-loading-processing)
+The following updates have been done using python scripts under [`0-data-loading-processing/`](https://github.com/gurveervirk/florabert/tree/master/scripts/0-data-loading-processing):
 
 **Data from step 2 using Refseq links**:
 
@@ -96,3 +96,15 @@ Previous 3 steps, if used together, need to be merged to get the correct folder 
 - Install file from [here](https://drive.google.com/file/d/1c-JXUcC4mnepp_SV5O0Rheb3qbN3LaZf/view?usp=sharing) --> (contains data folder after step 6)
 - add to florabert, if needed
 - further testing required
+
+The following updates have been done using python scripts under [`3-RNAseq-quantification/`](https://github.com/gurveervirk/florabert/tree/master/scripts/3-RNAseq-quantification):
+
+- The scripts under this module requires a lot of resources and time (patience). We opted to use the Bioinformatics website [Galaxy](https://usegalaxy.org/). This provides every user 250GB storage and allows the ability to use a number of very useful and important bioinformatics tools. 
+
+- The scripts under the module dealt with 26 NAM lines / cultivars of Maize. We replicated the entire process under this module in this website, with some minor changes (not in output). The first step was to get all the runs corresponding to each cultivar and unique organsim part for each, to avoid repitition. 
+
+- This was achieved by getting the base data from [EBI](https://www.ebi.ac.uk/) and searching for the 2 Bioprojects mentioned in the supplementary material (under [`research_papers`](https://github.com/gurveervirk/florabert/tree/main/research_papers)). This data was then used alongside the [`helper_codes`](https://github.com/gurveervirk/florabert/tree/main/helper_codes) scripts to get the file [`unique_orgs_runs.tsv`](https://github.com/gurveervirk/florabert/blob/main/helper_files/unique_orgs_runs.tsv). This file contains the runs corresponding to unique organism parts of each cultivar.
+
+- A workflow was then created / implemented / configured (the base workflow was created by user vasquex11 on the mentioned website) to align with the scripts. The runs were first uploaded per cultivar to the website (after logging in) in txt format, one per line. Next, fasterq-dump tool was used with --split-files option selected to get the fastq files corresponding to the runs.
+
+- The created workflow [`FloraBERT Test (Trimmomatic + HISAT2 + featureCounts)`](https://usegalaxy.org/u/gurveer05/w/copy-of-module-72-part-1-trimmomatic--hisat2--featurecounts-shared-by-user-vasquex11) was used to perform all the actions mentioned in the module. The final output are the featureCounts files corresponding to each run ( extending to unique organsim part of cultivars ). The steps are self-explanatory (using the research papers).
