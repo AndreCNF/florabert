@@ -74,12 +74,9 @@
 import torch
 from module.florabert import config, utils, training, dataio
 from module.florabert import transformers as tr
-import argparse
+import os
 
-def parse_args():
-    parser = argparse.ArgumentParser(description="Your script description here")
-    parser.add_argument("--input_number", type=int, default=0, help="Input number as a percentage")
-    return parser.parse_args()
+input_number = int(os.environ.get("INPUT_NUMBER", 0))
 
 DATA_DIR = config.data_final / "transformer" / "seq"
 TOKENIZER_DIR = config.models / "byte-level-bpe-tokenizer"
@@ -87,8 +84,6 @@ OUTPUT_DIR = config.models / "transformer" / "language-model"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def main():
-    args = parse_args()
-    input_number = args.input_number
     args = utils.get_args(
         data_dir=DATA_DIR,
         train_data=f"all_seqs_train_{input_number}.txt",  # Replace with the path to your first part of the dataset
