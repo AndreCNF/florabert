@@ -11,6 +11,14 @@ from ray.tune.suggest.hyperopt import HyperOptSearch
 from florabert import config, utils, training, dataio
 from florabert import transformers as tr
 
+if "COLAB_TPU_ADDR" in os.environ:
+    import tensorflow as tf
+
+    # Initialize TPU
+    resolver = tf.distribute.cluster_resolver.TPUClusterResolver(tpu="grpc://" + os.environ["COLAB_TPU_ADDR"])
+    tf.config.experimental_connect_to_cluster(resolver)
+    tf.tpu.experimental.initialize_tpu_system(resolver)
+    strategy = tf.distribute.experimental.TPUStrategy(resolver)
 
 DATA_DIR = config.data_final / "transformer" / "genex" / "nam"
 TRAIN_DATA = "train.tsv"
@@ -147,7 +155,7 @@ def main():
         else:
             compute_objective = None
 
-        print(f"Searching for best hyperparameters on {torch.cuda.device_count()} GPUs")
+        print(f"Starting training on {torch.cuda.device_count()} GPUs" if "COLAB_TPU_ADDR" not in os.environ else "Starting TPU training")
         best_run = trainer.hyperparameter_search(
             n_trials=args.ntrials,
             direction=args.direction,
@@ -160,7 +168,7 @@ def main():
         )
         print(best_run)
     else:
-        print(f"Starting training on {torch.cuda.device_count()} GPUs")
+        print(f"Starting training on {torch.cuda.device_count()} GPUs" if "COLAB_TPU_ADDR" not in os.environ else "Starting TPU training")
         training.do_training(trainer, args, args.output_dir)
 
     print("Final evaluation")
