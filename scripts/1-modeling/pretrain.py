@@ -5,6 +5,7 @@ import torch
 import os
 from module.florabert import config, utils, training, dataio
 from module.florabert import transformers as tr
+import pickle
 
 if "COLAB_TPU_ADDR" in os.environ:
     import tensorflow as tf
@@ -53,6 +54,8 @@ def main():
         file_type="text",
         seq_key="text",
     )
+    with open('datasets.pkl', 'wb') as file:
+        pickle.dump(datasets, file)
     dataset_train = datasets["train"]
     dataset_test = datasets["test"]
     print(f"Loaded training data with {len(dataset_train):,} examples")
