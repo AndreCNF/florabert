@@ -6,7 +6,7 @@ import os
 import torch
 from ray import tune
 from ray.tune.schedulers import AsyncHyperBandScheduler
-from ray.tune.suggest.hyperopt import HyperOptSearch
+from ray.tune.search.hyperopt import HyperOptSearch
 
 from florabert import config, utils, training, dataio
 from florabert import transformers as tr
