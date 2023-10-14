@@ -23,7 +23,7 @@ Predicting gene expression levels from upstream promoter regions using deep lear
   - [`pretrain.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/1-modeling/pretrain.py): training the FLORABERT base using a masked language modeling task. Type `python scripts/1-modeling/pretrain.py --help` to see command line options, including choice of dataset and whether to warmstart from a partially trained model. Note: not all options will be used by this script.
   - [`finetune.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/1-modeling/finetune.py): training the FLORABERT regression model (including newly initialized regression head) on multitask regression for gene expression in all 10 tissues. Type `python scripts/1-modeling/finetune.py --help` to see command line options; mainly for specifying data inputs and output directory for saving model weights.
   - [`evaluate.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/1-modeling/evaluate.py): computing metrics for the trained FLORABERT model
-- [`2-feature-visualization/](https://github.com/gurveervirk/florabert/tree/master/scripts/2-feature-visualization)`
+- [`2-feature-visualization/`](https://github.com/gurveervirk/florabert/tree/master/scripts/2-feature-visualization)
   - [`embedding_vis.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/2-feature-visualization/embedding_vis.py): computing a sample of BERT embeddings for the testing data and saving to a tensorboard log. Can specify how many embeddings to sample with `--num-embeddings XX` where `XX` is the number of embeddings (must be integer).
 
 **`module/`: directory for our customized modules**
@@ -96,6 +96,8 @@ Previous 3 steps, if used together, need to be merged to get the correct folder 
 - Install file from [here](https://drive.google.com/file/d/1c-JXUcC4mnepp_SV5O0Rheb3qbN3LaZf/view?usp=sharing) --> (contains data folder after step 6)
 - add to florabert, if needed
 - further testing required
+
+**First module has been completed. All data / outputs are under [`data`](https://github.com/gurveervirk/florabert/tree/main/data) or [`models`](https://github.com/gurveervirk/florabert/tree/main/models). Moving to Second Module. The following steps were essential for this [script](https://github.com/gurveervirk/florabert/blob/main/scripts/0-data-loading-processing/04-process-genex-nam.py).**
 
 The following updates have been done using python scripts under [`3-RNAseq-quantification/`](https://github.com/gurveervirk/florabert/tree/master/scripts/3-RNAseq-quantification):
 
