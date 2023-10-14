@@ -22,9 +22,11 @@ data:
 training:
     pretrain:
         num_train_epochs: 3
-        per_device_train_batch_size: 64
-        per_device_eval_batch_size: 64
-        fp16: true
+        per_device_train_batch_size: 256 
+        #64
+        per_device_eval_batch_size: 256 
+        #64
+        #fp16: true
         logging_steps: 50
         eval_steps: 200
         save_steps: 400
