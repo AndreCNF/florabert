@@ -22,7 +22,7 @@ data:
 training:
     pretrain:
         num_train_epochs: 3
-        per_device_train_batch_size: 48
+        per_device_train_batch_size: 16
         #64
         per_device_eval_batch_size: 48 
         #64
@@ -31,8 +31,8 @@ training:
         eval_steps: 200
         save_steps: 400
         save_total_limit: 20
-        gradient_accumulation_steps: 25
-        learning_rate: 1.e-4
+        gradient_accumulation_steps: 50
+        learning_rate: 1.e-5
         weight_decay: 0
         adam_epsilon: 1.e-8
         max_grad_norm: 10
