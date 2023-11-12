@@ -1,6 +1,4 @@
 """
-training.py
-
 Functions and classes for training pytorch models.
 """
 import os
@@ -357,6 +355,13 @@ def make_trainer(
             opt_kwargs=opt_kwargs,
             sched_kwargs=sched_kwargs,
         )
+    def preprocess_logits_for_metrics(logits, labels):
+        """
+        Original Trainer may have a memory leak. 
+        This is a workaround to avoid storing too many tensors that are not needed.
+        """
+        pred_ids = torch.argmax(logits[0], dim=-1)
+        return pred_ids, labels
     return Trainer(
         model=model,
         args=training_args,
@@ -365,6 +370,7 @@ def make_trainer(
         eval_dataset=test_dataset,
         optimizers=optimizers,
         compute_metrics=compute_metrics,
+        preprocess_logits_for_metrics=preprocess_logits_for_metrics 
     )
 
 
@@ -378,6 +384,7 @@ def do_training(trainer, args, output_dir):
         print(f"Resuming training from {ckpt}")
         trainer.train(str(ckpt))
     else:
+#         with torch.no_grad():
         trainer.train()
 
     return trainer
@@ -401,6 +408,7 @@ class MyTrainingArguments(TrainingArguments):
     num_param_groups: int = field(default=2)
     evaluate_during_training: bool = field(default = True)
     param_group_size: int = field(default=None)
+    predict_with_generate: bool = field(default = False)
 
 
 class MyTrainer(Trainer):
