@@ -1,6 +1,3 @@
-%%writefile /kaggle/working/florabert/config.yaml
-# Project-wide configuration settings
-
 # Variables for train-test-split
 TRAIN_SIZE: 0.7
 
