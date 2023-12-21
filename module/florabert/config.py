@@ -21,8 +21,8 @@ data_final = data / 'final'
 
 # Location of tools
 libs = root / 'libs'
-samtools = libs / 'samtools' / 'samtools'
-bedtools = libs / 'bedtools' / 'bedtools'
+samtools = libs / 'samtools'
+bedtools = libs / 'bedtools'
 dnabert = root / 'DNABERT'
 
 # Locations of specific files
