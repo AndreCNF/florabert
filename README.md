@@ -55,47 +55,7 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
 
 ---
 
-### Personal Updates on Forked Repo:
-
-The following updates have been done using python scripts under [`0-data-loading-processing/`](https://github.com/gurveervirk/florabert/tree/master/scripts/0-data-loading-processing):
-
-**Data from step 2 using Refseq links**:
-
-- Install zip file from [here](https://drive.google.com/file/d/1-0V8grOh1zh4-4EisXy_fxqQeAHuySdu/view?usp=drive_link) --> (contains data folder after step 2 using refseq links)
-- unzip and add to florabert, if needed
-- further testing required
-
-**Data from step 2 using Ensembl links**:
-
-- Install zip file from [here](https://drive.google.com/file/d/11_ZOm3l7sakyAwxhiEGYsaj3if1YK8Cu/view?usp=drive_link) --> (contains data folder after step 2 using ensembl links)
-- unzip and add to florabert, if needed
-- further testing required
-
-**Data from step 2 using Maize NAM links**:
-
-- Install zip file from [here](https://drive.google.com/file/d/1xK8w0h_ttmMV0TBDSStKYt_DHeYh0F3q/view?usp=sharing) --> (contains data folder after step 2 using maize_nam (from MaizeGDB FTP; only NAM lines) links)
-- unzip and add to florabert, if needed
-- further testing required
-
-Previous 3 steps, if used together, need to be merged to get the correct folder structure and then run 3rd file under data-loading folder
-
-**Data from step 3**:
-
-- Install zip file from [here](https://drive.google.com/file/d/1hNzlP4xHU0fLT5GxHUWKYyoXthsEcXH7/view?usp=sharing) --> (contains data folder after step 3)
-- unzip and add to florabert, if needed
-- further testing required
-
-**Data from step 5**:
-
-- Install file from [here](https://drive.google.com/file/d/1iTrmHDawZpi33Cv5GsgYei4H5xz06yMs/view?usp=sharing) --> (contains data folder after step 5)
-- add to florabert, if needed
-- further testing required
-
-**Data from step 6**:
-
-- Install file from [here](https://drive.google.com/file/d/1c-JXUcC4mnepp_SV5O0Rheb3qbN3LaZf/view?usp=sharing) --> (contains data folder after step 6)
-- add to florabert, if needed
-- further testing required
+### Personal Updates on Forked Repo: (Removed due to low google drive space)
 
 **First module has been completed. All data / outputs are under [`data`](https://github.com/gurveervirk/florabert/tree/main/data) or [`models`](https://github.com/gurveervirk/florabert/tree/main/models). Moving to Second Module. The following steps were essential for this [script](https://github.com/gurveervirk/florabert/blob/main/scripts/0-data-loading-processing/04-process-genex-nam.py).**
 
