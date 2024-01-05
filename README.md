@@ -111,6 +111,8 @@ The following updates have been done using python scripts under [`3-RNAseq-quant
 
 - The created workflow [`FloraBERT Test (Trimmomatic + HISAT2 + featureCounts)`](https://usegalaxy.org/u/gurveer05/w/copy-of-module-72-part-1-trimmomatic--hisat2--featurecounts-shared-by-user-vasquex11) was used to perform all the actions mentioned in the module. The final output are the featureCounts files corresponding to each run ( extending to unique organsim part of cultivars ). The steps are self-explanatory (using the research papers).
 
+**The full train-test data for pretraining is available at [`Kaggle Dataset For Pretraining`](https://www.kaggle.com/datasets/gsv001100/dataset-for-updation/versions/7) and for finetuning at [`Kaggle Dataset For Finetuning`](https://www.kaggle.com/datasets/gsv001100/dataset-for-updation/versions/3)**
+
 **Some observations**:
 
 - using different transformations to handle the highly right skewed TPM values (during finetuning stage):
