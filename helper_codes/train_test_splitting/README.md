@@ -1,0 +1,1 @@
+Use train_test_split.py to split the data and the other file to trim the data if needed

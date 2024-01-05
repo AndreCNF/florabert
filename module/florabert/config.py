@@ -46,15 +46,14 @@ def reload_settings():
 # New (NAM)
 # plant embryo and shoot aren't available for all cultivars
 tissues = [
-    'endosperm',
-    'tassel inflorescence',
-    'leaf base',
-    'anther',
-    'leaf',
-    'ear inflorescence',
-    'shoot',
-    'root',
-    'leaf tip'
+    'tassel', 
+    'base', 
+    'anther', 
+    'middle', 
+    'ear', 
+    'shoot', 
+    'tip', 
+    'root' 
 ]
 
 # OLD

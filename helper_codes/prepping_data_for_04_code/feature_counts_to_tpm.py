@@ -12,20 +12,18 @@ def calculate_tpm(count_file, length_file, output_file):
                 count = float(parts[1])
                 counts[gene_id] = count
 
-    # Read lengths from the length file
-    lengths = {}
     with open(length_file, 'r') as f:
         for line in f:
             if not line.startswith('Geneid'):
                 gene_id, length = line.strip().split('\t')
-                lengths[gene_id] = int(length)
+                counts[gene_id] /= int(length)
 
     # Calculate TPM values and write them to the output file
     with open(output_file, 'w') as f:
+        total_rpkm = sum(counts.values())
         for gene_id, count in counts.items():
-            length = lengths.get(gene_id, 1.0)  # Default to 1 if length is missing
-            rpkm = (count / length) / (sum(counts.values()) / 1e6)
-            f.write(f"{gene_id}\t{rpkm:.6f}\n")
+            tpm = count / (total_rpkm / 1e6)
+            f.write(f"{gene_id}\t{tpm:.6f}\n")
 
 # Specify the directory path with raw string literal
 directory_path = r'path\to\datasets'

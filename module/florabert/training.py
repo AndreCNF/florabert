@@ -1,4 +1,6 @@
 """
+training.py
+
 Functions and classes for training pytorch models.
 """
 import os
@@ -267,8 +269,8 @@ def make_trainer(
             len(train_dataset)
             / training_kwargs["per_device_train_batch_size"]
             * training_kwargs["num_train_epochs"]
-            / training_kwargs["gradient_accumulation_steps"]
-            / num_devices
+#             / training_kwargs["gradient_accumulation_steps"]
+            / 2
         )
 
         def create_optimizer_and_scheduler(
@@ -310,9 +312,18 @@ def make_trainer(
 
     def compute_metrics(eval_pred):
         predictions, labels = eval_pred
+#         predictions = np.argmax(logits, axis=-1) 
+#         print("labels shape:", labels.shape if isinstance(labels, np.ndarray) else labels.size())
+#         print("preds: ", predictions)
+#         print("labels: ", labels)
+#         print("predictions shape:", predictions.shape if isinstance(predictions, np.ndarray) else len(predictions))
+    
         if isinstance(predictions, tuple):
             # logits, hidden_states = predictions
             predictions, _ = predictions
+#         print("labels shape:", labels.shape if isinstance(labels, np.ndarray) else labels.size())
+#         print("predictions shape:", predictions.shape if isinstance(predictions, np.ndarray) else predictions.size())
+
         res = {}
         if "r2" in metrics:
             res["r2"] = compute_r2(labels, predictions)
@@ -355,23 +366,14 @@ def make_trainer(
             opt_kwargs=opt_kwargs,
             sched_kwargs=sched_kwargs,
         )
-    def preprocess_logits_for_metrics(logits, labels):
-        """
-        Original Trainer may have a memory leak. 
-        This is a workaround to avoid storing too many tensors that are not needed.
-        """
-        pred_ids = torch.argmax(logits[0], dim=-1)
-        return pred_ids, labels
-    return Trainer(
-        model=model,
-        args=training_args,
-        data_collator=data_collator,
-        train_dataset=train_dataset,
-        eval_dataset=test_dataset,
-        optimizers=optimizers,
-        compute_metrics=compute_metrics,
-        preprocess_logits_for_metrics=preprocess_logits_for_metrics 
-    )
+#     def preprocess_logits_for_metrics(logits, labels):
+#         """
+#         Original Trainer may have a memory leak. 
+#         This is a workaround to avoid storing too many tensors that are not needed.
+#         """
+#         pred_ids = torch.argmax(logits[0], dim=-1)
+#         return pred_ids, labels
+    return optimizers
 
 
 def do_training(trainer, args, output_dir):
@@ -379,6 +381,7 @@ def do_training(trainer, args, output_dir):
     Run HuggingFace trainer, loading latest checkpoint if `args.warmstart`
     is True.
     """
+    checkpoint_dir = "/kaggle/working/florabert/models/transformer/language-model/checkpoint-600/pytorch_model.bin"
     if args.warmstart:
         ckpt = get_latest_checkpoint(output_dir)
         print(f"Resuming training from {ckpt}")
@@ -408,7 +411,7 @@ class MyTrainingArguments(TrainingArguments):
     num_param_groups: int = field(default=2)
     evaluate_during_training: bool = field(default = True)
     param_group_size: int = field(default=None)
-    predict_with_generate: bool = field(default = False)
+    predict_with_generate: bool = field(default = True)
 
 
 class MyTrainer(Trainer):

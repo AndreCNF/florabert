@@ -110,3 +110,20 @@ The following updates have been done using python scripts under [`3-RNAseq-quant
 - A workflow was then created / implemented / configured (the base workflow was created by user vasquex11 on the mentioned website) to align with the scripts. The runs were first uploaded per cultivar to the website (after logging in) in txt format, one per line. Next, fasterq-dump tool was used with --split-files option selected to get the fastq files corresponding to the runs.
 
 - The created workflow [`FloraBERT Test (Trimmomatic + HISAT2 + featureCounts)`](https://usegalaxy.org/u/gurveer05/w/copy-of-module-72-part-1-trimmomatic--hisat2--featurecounts-shared-by-user-vasquex11) was used to perform all the actions mentioned in the module. The final output are the featureCounts files corresponding to each run ( extending to unique organsim part of cultivars ). The steps are self-explanatory (using the research papers).
+
+**Some observations**:
+
+- using different transformations to handle the highly right skewed TPM values (during finetuning stage):
+  - natural log transformation gave an mse of 2.4
+  - boxcox transformation gave an mse of 12.9
+  - log10 transformation gave an mse of 0.4441!?!?!?
+  - log10 also improved r2 by 0.01 (from 0.077 to 0.087) which is considerable here (no other changes)
+  - this means that handling the highly right skewed is pivotal here for model performance
+- TPU usage on pytorch is a herculean task for our use-case
+- custom finetuning script may have to be tweaked
+- python dependencies are problematic at times
+- DNABERT-1 makes use of k-mers meaning the tokenizer files that are made are basically 4^k permutations ('A', 'T', 'G', 'C'), not great (now) for tasks dealing with DNA
+- DNABERT-2 is an obvious improvement as it makes use of actual tokenization, preventing overlapping and better identification of important parts of DNA seqeunces
+- Byte-level-BPE-tokenizer makes use of 256 basic (byte-level) tokens; taking this into consideration, new vocab_size is set to 5256
+- padding HAS GOT TO BE EQUAL TO true OR "max_length" WHEN TRAINING ON TPU (as a parameter for tokenizer; used in preprocess_fn in dataio.py in this proj)
+- torch, torch_xla, torch_xla.core.xla_model (as xm) have to be imported to make sure Training (Trainer) works properly on TPU (tested on kaggle)

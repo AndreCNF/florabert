@@ -313,6 +313,7 @@ def make_preprocess_function(tokenizer, seq_key: str = "sequence") -> callable:
             max_length=tokenizer.model_max_length,
             truncation=True,
             padding="max_length",
+#             padding = True,
         )
 
     return preprocess_function
@@ -412,7 +413,7 @@ def preprocess_log_transform(examples: dict, eps=1) -> dict:
     """Log transform values in a list, offsetting by `eps` (default 1) to avoid 0s"""
     log_transformed = []
     for ex in examples["labels"]:
-        log_transformed.append([np.log(x + eps) for x in ex])
+        log_transformed.append([np.log10(x + eps) for x in ex])
     return {"labels": log_transformed}
 
 

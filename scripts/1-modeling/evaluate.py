@@ -1,17 +1,19 @@
 """Performance of FLORABERT overall and disaggregated by tissue.
 """
+import sys
+sys.path.append('/kaggle/working/florabert')
 import torch
 from datasets import Dataset
 import pandas as pd
 import numpy as np
 
-from florabert import config, utils, metrics, dataio
-from florabert import transformers as tr
-from florabert import visualization as vis
+from module.florabert import config, utils, metrics, dataio
+from module.florabert import transformers as tr
+from module.florabert import visualization as vis
 
 
 TOKENIZER_DIR = config.models / "byte-level-bpe-tokenizer"
-PRETRAINED_MODEL = config.models / "transformer" / "full-dataset"
+PRETRAINED_MODEL = config.models / "transformer" / "prediction-model" / "final"
 DATA_DIR = config.data_final / "transformer" / "genex"
 
 DATA_DIR = config.data_final / "transformer" / "genex" / "nam"
