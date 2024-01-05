@@ -55,7 +55,7 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
 
 ---
 
-### Personal Updates on Forked Repo: (Removed due to low google drive space)
+### Personal Updates on Forked Repo: (Removed data links due to low google drive space)
 
 **First module has been completed. All data / outputs are under [`data`](https://github.com/gurveervirk/florabert/tree/main/data) or [`models`](https://github.com/gurveervirk/florabert/tree/main/models). Moving to Second Module. The following steps were essential for this [script](https://github.com/gurveervirk/florabert/blob/main/scripts/0-data-loading-processing/04-process-genex-nam.py).**
 
