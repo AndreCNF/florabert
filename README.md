@@ -73,6 +73,8 @@ The following updates have been done using python scripts under [`3-RNAseq-quant
 
 **The full train-test data for pretraining is available at [`Kaggle Dataset For Pretraining`](https://www.kaggle.com/datasets/gsv001100/dataset-for-updation/versions/7) and for finetuning at [`Kaggle Dataset For Finetuning`](https://www.kaggle.com/datasets/gsv001100/dataset-for-updation/versions/3)**
 
+**[`Evaluation results`](https://www.kaggle.com/datasets/gurveersinghvirk/florabert-base/versions/83)**
+
 **Some observations**:
 
 - using different transformations to handle the highly right skewed TPM values (during finetuning stage):
