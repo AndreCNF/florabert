@@ -14,7 +14,7 @@ Predicting gene expression levels from upstream promoter regions using deep lear
   - [`02-download-process-db-data.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/0-data-loading-processing/02-download-process-db-data.py): downloads and processes gene sequences from a specified database: 'Ensembl', 'Maize', 'Maize_addition', 'Refseq'
   - [`03-combine-databases.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/0-data-loading-processing/03-combine-databases.py): combines all the downloaded sequences within all the databases
   - [`04a-merge-genex-maize_seq.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/0-data-loading-processing/04a-merge-genex-maize_seq.py):
-  - [`04b-merge-genex-b73.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/0-data-loading-processing/04b-merge-genex-b73.py):
+  - [`04b-merge-genex-b73.py`](https://github.com/gurveervirk//blob/master/scripts/0-data-loading-processing/04b-merge-genex-b73.py):
   - [`05a-cluster-maize_seq.sh`](scripts/0-data-loading-processing/05a-cluster-maize_seq.sh): clusters the promoter sequences into groups with up to 80% sequence identity, which may be interpreted as paralogs
   - [`05b-train-test-split.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/0-data-loading-processing/05-train-test-split.py): divides the promoter sequences into train and test sets, avoiding a set of pairs that indicate close relations ("paralogs")
   - [`06_transformer_preparation.py`](https://github.com/gurveervirk/florabert/blob/master/scripts/0-data-loading-processing/06_transformer_preparation.py):
@@ -41,7 +41,7 @@ Predicting gene expression levels from upstream promoter regions using deep lear
 
 ### Pretrained models
 
-If you wish to experiment with our pre-trained FLORABERT models, you can find the saved PyTorch models and the Huggingface tokenizer files [here](https://drive.google.com/drive/folders/1qHwRfXxPVC1j2GcZ-wFOT3BmTmHRr_it?usp=sharing)
+If you wish to experiment with our pre-trained FLORABERT models, you can find the saved PyTorch models and the Huggingface tokenizer files [here](https://huggingface.co/Gurveer05/FloraBERT)
 
 **Contents**:
 
