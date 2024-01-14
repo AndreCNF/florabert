@@ -55,7 +55,9 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
 
 ---
 
-### Personal Updates on Forked Repo: (Removed data links due to low google drive space)
+### Personal Updates on Forked Repo: 
+
+Kindly refer to [`gz_link`](https://github.com/gurveervirk/florabert/tree/main/data/raw/gz_link) for the raw data and links used for data collection and preprocessing as well as the [`research_papers`](https://github.com/gurveervirk/florabert/tree/main/research_papers) for the 26 NAM lines and the references used throughout the project.
 
 **First module has been completed. All data / outputs are under [`data`](https://github.com/gurveervirk/florabert/tree/main/data) or [`models`](https://github.com/gurveervirk/florabert/tree/main/models). Moving to Second Module. The following steps were essential for this [script](https://github.com/gurveervirk/florabert/blob/main/scripts/0-data-loading-processing/04-process-genex-nam.py).**
 
@@ -71,7 +73,7 @@ The following updates have been done using python scripts under [`3-RNAseq-quant
 
 - The created workflow [`FloraBERT Test (Trimmomatic + HISAT2 + featureCounts)`](https://usegalaxy.org/u/gurveer05/w/copy-of-module-72-part-1-trimmomatic--hisat2--featurecounts-shared-by-user-vasquex11) was used to perform all the actions mentioned in the module. The final output are the featureCounts files corresponding to each run ( extending to unique organsim part of cultivars ). The steps are self-explanatory (using the research papers).
 
-**The full train-test data for pretraining is available at [`Kaggle Dataset For Pretraining`](https://www.kaggle.com/datasets/gsv001100/dataset-for-updation/versions/7) and for finetuning at [`Kaggle Dataset For Finetuning`](https://www.kaggle.com/datasets/gsv001100/dataset-for-updation/versions/3)**
+**The full train-test data for pretraining is available at [`Hugging Face Dataset For Pretraining`](https://huggingface.co/datasets/Gurveer05/plant-promoter-sequences), for finetuning on Maize NAM data at [`Hugging Face Dataset For Finetuning`](https://huggingface.co/datasets/Gurveer05/maize-promoter-sequences) and for finetuning for the downstream task at [`Hugging Face Dataset for Downstream task`](https://huggingface.co/datasets/Gurveer05/maize-nam-gene-expression-data)**
 
 **[`Evaluation results`](https://www.kaggle.com/datasets/gurveersinghvirk/florabert-base/versions/83)** are also under [`outputs/`](https://github.com/gurveervirk/florabert/tree/main/output).
 
