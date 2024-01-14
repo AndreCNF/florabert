@@ -57,7 +57,7 @@ If you wish to experiment with our pre-trained FLORABERT models, you can find th
 
 ### Personal Updates on Forked Repo: 
 
-Kindly refer to [`gz_link`](https://github.com/gurveervirk/florabert/tree/main/data/raw/gz_link) for the raw data and links used for data collection and preprocessing as well as the [`research_papers`](https://github.com/gurveervirk/florabert/tree/main/research_papers) for the 26 NAM lines and the references used throughout the project.
+Kindly refer [`gz_link`](https://github.com/gurveervirk/florabert/tree/main/data/raw/gz_link) for the raw data and links used for data collection and preprocessing, [`research_papers`](https://github.com/gurveervirk/florabert/tree/main/research_papers) for the 26 NAM lines and the references used throughout the project and [`config.py`](https://github.com/gurveervirk/florabert/blob/main/module/florabert/config.py) and the corresponding [`config.yaml`](https://github.com/gurveervirk/florabert/blob/main/config.yaml) for the configurations used (the tissues array in config.py correspond to the values in labels col of data). Majority of the execution has been carried out in [`Colab Notebook`](https://colab.research.google.com/drive/1UsBeiMqeT2ntQbuJhmwceBEswSLOzjr1?usp=sharing) and [`Kaggle Notebook`](https://www.kaggle.com/code/gurveersinghvirk/florabert-2/)
 
 **First module has been completed. All data / outputs are under [`data`](https://github.com/gurveervirk/florabert/tree/main/data) or [`models`](https://github.com/gurveervirk/florabert/tree/main/models). Moving to Second Module. The following steps were essential for this [script](https://github.com/gurveervirk/florabert/blob/main/scripts/0-data-loading-processing/04-process-genex-nam.py).**
 
