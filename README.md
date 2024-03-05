@@ -8,32 +8,32 @@ Predicting gene expression levels from upstream promoter regions using deep lear
 
 1. Install dependencies in a virtual environment (recommended):
 
-  e.g using [uv](https://github.com/astral-sh/uv) from the repo's root directory:
+    e.g using [uv](https://github.com/astral-sh/uv) from the repo's root directory:
 
-  ```bash
-  uv venv  # Create a virtual environment at .venv
-  source .venv/bin/activate  # On macOS and Linux
-  # .venv\Scripts\activate   # On Windows
-  uv pip sync requirements.txt  # Install from a requirements.txt file
-  ```
+    ```bash
+    uv venv  # Create a virtual environment at .venv
+    source .venv/bin/activate  # On macOS and Linux
+    # .venv\Scripts\activate   # On Windows
+    uv pip sync requirements.txt  # Install from a requirements.txt file
+    ```
 
 1. Install tools
 
-  1. Install `bedtools`
+    1. Install `bedtools`
 
-    If on macOS, first install `bedtools` with `brew`:
+        If on macOS, first install `bedtools` with `brew`:
 
-    ```bash
-    brew install bedtools
-    ```
+        ```bash
+        brew install bedtools
+        ```
 
-    Else, uncomment lines 32-37 and comment out line 40 of `Makefile`
+        Else, uncomment lines 32-37 and comment out line 40 of `Makefile`
 
-  1. Setup links to `bedtools` and `samtools`
+    1. Setup links to `bedtools` and `samtools`
 
-    ```bash
-    make
-    ```
+        ```bash
+        make
+        ```
 
 ## Directory Setup
 
