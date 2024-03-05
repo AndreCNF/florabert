@@ -1,24 +1,25 @@
-""" Python script used to download and process gene sequences from a specified
-    database: 'Ensembl', 'Refseq', 'Maize', 'Maize_addition', 'Maize_nam'.
-    INPUTS:
-        - Four <db_name>_link.csv that stores the links to gz files on 
-        the ftp databases, located inside config.data_raw / "gz_link"
-    OUTPUTS:
-        - A single folder with the database name, located inside 
-        config.data_processed, that stores the processed sequences
-        for individual species / cultivars
-    Sample usage: `python 02-download-process-db-data.py Ensembl` to download
-    processed regulatory sequences from the Ensembl database
+"""Python script used to download and process gene sequences from a specified
+database: 'Ensembl', 'Refseq', 'Maize', 'Maize_addition', 'Maize_nam'.
+INPUTS:
+    - Four <db_name>_link.csv that stores the links to gz files on
+    the ftp databases, located inside config.data_raw / "gz_link"
+OUTPUTS:
+    - A single folder with the database name, located inside
+    config.data_processed, that stores the processed sequences
+    for individual species / cultivars
+Sample usage: `python 02-download-process-db-data.py Ensembl` to download
+processed regulatory sequences from the Ensembl database
 """
+
 import os
 import argparse
 import pandas as pd
+from tqdm.auto import tqdm
 from module.florabert import config
 from module.florabert import gene_db_io
 
 
 if __name__ == "__main__":
-
     # Parse db_name
     parser = argparse.ArgumentParser(description="Provide DB name to be processed")
 
@@ -40,7 +41,11 @@ if __name__ == "__main__":
     )
 
     # Loop through the rows of link file
-    for idx, row in df.iterrows():
+    for idx, row in tqdm(
+        df.iterrows(),
+        total=len(df),
+        desc=f"Processing rows of {db_name.lower()}_link.csv",
+    ):
         dna_url = row["gene_link"]
         annot_url = row["annot_link"]
         dna_name = row["gene_link"].split("/")[-1].replace(".gz", "")
