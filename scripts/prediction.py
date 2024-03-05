@@ -54,7 +54,12 @@ def main(TEST_DATA):
     dataset_test = datasets["train"]
 
     print("Getting predictions:")
-    preds = np.exp(np.array(metrics.get_predictions(model, dataset_test))) - 1
+    preds = (
+        np.exp(
+            np.array(metrics.get_predictions(model, dataset_test, return_labels=False))
+        )
+        - 1
+    )
     for e in preds:
         table.add_row(e)
     print(table)

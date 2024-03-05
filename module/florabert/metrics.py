@@ -1,5 +1,5 @@
-"""Reusable metrics functions for evaluating models
-"""
+"""Reusable metrics functions for evaluating models"""
+
 import multiprocessing as mp
 from typing import Tuple
 
