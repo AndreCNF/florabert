@@ -12,13 +12,11 @@ from tqdm import tqdm
 import torch
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
-from matplotlib.figure import Figure
 import seaborn as sns
 
 from transformers import default_data_collator
 from datasets import load_dataset
 
-from . import transformers as tr
 from .dataio import make_preprocess_function
 from .utils import convert_str_to_tnsr
 from .config import settings

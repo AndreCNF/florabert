@@ -20,7 +20,6 @@ from florabert import transformers as tr
 from tqdm import tqdm
 
 tf.io.gfile = tb.compat.tensorflow_stub.io.gfile
-from torch.utils.tensorboard import SummaryWriter
 
 
 logging.basicConfig()
@@ -183,7 +182,7 @@ def main(
         if embed_dir.exists():
             shutil.rmtree(embed_dir)
         embed_dir.mkdir(parents=True, exist_ok=True)
-        df_bow.to_csv(embed_dir / f"partition_0.csv", index=False)
+        df_bow.to_csv(embed_dir / "partition_0.csv", index=False)
 
     else:
         precomputed_embeddings = load_from

@@ -1,22 +1,17 @@
 """
 Fine-tuning the transformer model on the downstream gene expression prediction task
 """
-import os
 import sys
 sys.path.append('/kaggle/working/florabert')
 import torch
-import multiprocessing
-import numpy as np
 from torch.utils.data import DataLoader
 # import torch.distributed as dist
 from accelerate import Accelerator
 from tqdm.auto import tqdm
 from ray import tune
-from ray.tune.schedulers import AsyncHyperBandScheduler
-from ray.tune.search.hyperopt import HyperOptSearch
 from module.florabert import config, utils, training, dataio
 from module.florabert import transformers as tr
-from module.florabert.utils import get_latest_checkpoint, compute_r2, compute_mse
+from module.florabert.utils import compute_mse
 
 NUM_REPLICAS = 2
 

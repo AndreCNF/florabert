@@ -1,5 +1,4 @@
 import os
-import numpy as np
 import glob
 
 input_dir = r'path\to\normalized_tpm_data' 

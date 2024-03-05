@@ -5,7 +5,6 @@
 
 import pandas as pd
 import urllib.request
-import os
 
 # Define a function to get the file size in MB
 def get_file_size_mb(url):

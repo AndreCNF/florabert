@@ -6,7 +6,7 @@ from typing import Tuple
 import numpy as np
 import torch
 from torch import nn
-from torch.nn import BCELoss, BCEWithLogitsLoss, MSELoss, PoissonNLLLoss, KLDivLoss
+from torch.nn import BCELoss, BCEWithLogitsLoss, MSELoss, PoissonNLLLoss
 
 from transformers import BertConfig, BertModel, RobertaConfig, RobertaModel
 from transformers import BertPreTrainedModel

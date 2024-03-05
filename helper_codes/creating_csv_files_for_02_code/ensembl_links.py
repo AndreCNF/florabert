@@ -195,4 +195,4 @@ with open("ensembl_link.csv", "w", newline="") as csvfile:
         # # Add a row for each plant with name, DNA link, and EMBL link separately
         # for dna_link, embl_link in zip(dna_link, embl_link):
 
-print(f"CSV file has been created.")
+print("CSV file has been created.")

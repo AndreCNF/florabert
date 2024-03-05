@@ -2,7 +2,6 @@
 """
 import pickle
 from functools import reduce, partial
-import operator
 
 from sklearn.preprocessing import StandardScaler, FunctionTransformer
 from sklearn.pipeline import make_pipeline

@@ -1,12 +1,9 @@
-from tqdm import tqdm
-import numpy as np
 import pandas as pd
 import torch
 import click
 
 from florabert import config, utils, dataio, metrics
 from florabert import transformers as tr
-from florabert import visualization as vis
 
 
 MODEL_PATH = config.models / "transformer" / "full-dataset" / "checkpoint-9500"

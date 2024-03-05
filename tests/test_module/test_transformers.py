@@ -1,8 +1,7 @@
-import pytest
 
 from torch.optim import Adam
 
-from florabert import config, utils
+from florabert import config
 from florabert import transformers as tr
 
 

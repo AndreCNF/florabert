@@ -5,7 +5,6 @@ sys.path.append('/kaggle/working/florabert')
 import torch
 from datasets import Dataset
 import pandas as pd
-import numpy as np
 
 from module.florabert import config, utils, metrics, dataio
 from module.florabert import transformers as tr

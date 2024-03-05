@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import os
 
 # Base URL for the plant genomes
 base_url = "https://ftp.ncbi.nlm.nih.gov/genomes/refseq/plant/"

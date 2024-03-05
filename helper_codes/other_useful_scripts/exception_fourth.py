@@ -1,5 +1,3 @@
-import os
-import re
 
 def calculate_tpm(combined_file, output_file):
     # Read counts and lengths from the combined file
@@ -19,7 +17,7 @@ def calculate_tpm(combined_file, output_file):
 
     # Calculate TPM values and write them to the output file
     with open(output_file, 'w') as f:
-        f.write(f"Geneid\tTPM\n")
+        f.write("Geneid\tTPM\n")
         for gene_id, read_count in counts.items():
             length = lengths.get(gene_id, 1.0)  # Default to 1 if length is missing
             rpkm = (read_count / length) / (sum(counts.values()) / 1e6)

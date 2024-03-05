@@ -10,18 +10,14 @@ OUTPUTS:
     - csv with promoter sequences, gene expression values, train/eval/test split, and metadata for all cultivars
     - train.tsv, eval.tsv, test.tsv for transformer modelling
 """
-import re
-import csv
 import pickle
 from pathlib import PosixPath
 
 import pandas as pd
-from pandarallel import pandarallel
 from tqdm import tqdm
-import numpy as np
 from Bio import SeqIO
 
-from module.florabert import config, utils, dataio
+from module.florabert import config
 
 
 tqdm.pandas()

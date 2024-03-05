@@ -3,7 +3,7 @@
     update tissues under config.py as needed (keep highest freq. tissues/org_parts only)
 """
 
-from module.florabert import config, utils, dataio
+from module.florabert import config
 import pandas as pd
 
 GENEX_DIR = (
