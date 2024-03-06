@@ -34,7 +34,7 @@ if __name__ == "__main__":
         raise ValueError(
             "Arg db_name must be one of ['Ensembl', 'Refseq', 'Maize', 'Maize_addition', 'Maize_nam']."
         )
-    logger.debug("Name of database to be processed:", db_name)
+    logger.debug(f"Name of database to be processed: {db_name}")
 
     # Read in the db_link.csv
     df = pd.read_csv(
@@ -81,9 +81,10 @@ if __name__ == "__main__":
                 processed_db_path, dna_name, db_name, species_name
             )
             logger.success(f"\nFinished processing index {idx}:", dna_name)
-            for seq in processed_fa:
-                logger.debug("First Sequence in the processed file:")
-                logger.debug(seq.id, "\n", seq.seq)
-                break
+            for idx, seq in enumerate(processed_fa):
+                logger.debug(f"Sequence #{idx} in the processed file:")
+                logger.debug(f"ID: {seq.id}\t|\tSeq: {seq.seq[:10]}...")
+                if idx > 1:
+                    break
         except (KeyError, TypeError, ValueError, IndexError, AssertionError) as e:
             logger.warning(f"\nUnable to process {dna_name}. Error message: {e}")
