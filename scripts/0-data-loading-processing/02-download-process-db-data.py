@@ -13,6 +13,7 @@ processed regulatory sequences from the Ensembl database
 
 import os
 import argparse
+from loguru import logger
 import pandas as pd
 from tqdm.auto import tqdm
 from module.florabert import config
@@ -33,7 +34,7 @@ if __name__ == "__main__":
         raise ValueError(
             "Arg db_name must be one of ['Ensembl', 'Refseq', 'Maize', 'Maize_addition', 'Maize_nam']."
         )
-    print("Name of database to be processed:", db_name)
+    logger.debug("Name of database to be processed:", db_name)
 
     # Read in the db_link.csv
     df = pd.read_csv(
@@ -58,6 +59,9 @@ if __name__ == "__main__":
         annot_path = db_path / "annot"
         processed_db_path = config.data_processed / db_name
 
+        if (processed_db_path / species_name).exists():
+            continue
+
         # Test run the main function
         try:
             gene_db_io.generate_sequence_for_species(
@@ -72,16 +76,14 @@ if __name__ == "__main__":
                 species_name,
                 regulatory_len=1000,
             )
-
-            print(f"\nFinished processing index {idx}:", dna_name)
-
             # Test load process dna sequences
             processed_fa = gene_db_io.load_processed_fa(
                 processed_db_path, dna_name, db_name, species_name
             )
+            logger.success(f"\nFinished processing index {idx}:", dna_name)
             for seq in processed_fa:
-                print("First Sequence in the processed file:")
-                print(seq.id, "\n", seq.seq)
+                logger.debug("First Sequence in the processed file:")
+                logger.debug(seq.id, "\n", seq.seq)
                 break
-        except (KeyError, TypeError, ValueError, IndexError) as e:
-            print(f"\nUnable to process {dna_name} with Exception {e}.")
+        except (KeyError, TypeError, ValueError, IndexError, AssertionError) as e:
+            logger.warning(f"\nUnable to process {dna_name}. Error message: {e}")
