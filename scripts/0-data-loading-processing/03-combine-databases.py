@@ -30,8 +30,6 @@ def combine_data(database, suffix):
     # Read in the content of each species and append to df one by one
     for species in tqdm(species_list):
         files = os.listdir(parent_path / species)
-        logger.debug(f"Processing {species} with {len(files)} files.")
-        logger.debug(f"Files: {files}")
         try:
             fa_name = [f for f in files if f.endswith(suffix)][0]
         except Exception as e:
@@ -39,7 +37,6 @@ def combine_data(database, suffix):
             continue
         file_path = parent_path / species / fa_name
         sequences = SeqIO.parse(open(file_path), "fasta")
-        logger.debug(f"Found {len(list(sequences))} sequences in {fa_name}.")
         for seq in sequences:
             df_dict["species"].append(species)
             df_dict["name"].append(seq.name)

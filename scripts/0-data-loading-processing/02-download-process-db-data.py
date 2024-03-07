@@ -60,7 +60,12 @@ if __name__ == "__main__":
         processed_db_path = config.data_processed / db_name
 
         if (processed_db_path / species_name).exists():
-            continue
+            if len(os.listdir(processed_db_path / species_name)) > 0:
+                continue
+            else:
+                logger.debug(
+                    f"Folder {species_name} exists in {processed_db_path}, but is empty. Processing..."
+                )
 
         # Test run the main function
         try:
