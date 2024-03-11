@@ -6,6 +6,7 @@ sys.path.append("/kaggle/working/florabert")
 import torch
 from datasets import Dataset
 import pandas as pd
+import numpy as np
 
 from module.florabert import config, utils, metrics, dataio
 from module.florabert import transformers as tr
@@ -13,7 +14,7 @@ from module.florabert import visualization as vis
 
 
 TOKENIZER_DIR = config.models / "byte-level-bpe-tokenizer"
-PRETRAINED_MODEL = config.models / "transformer" / "prediction-model" / "final"
+PRETRAINED_MODEL = config.models / "transformer" / "prediction-model"
 DATA_DIR = config.data_final / "transformer" / "genex"
 
 DATA_DIR = config.data_final / "transformer" / "genex" / "nam"
@@ -22,6 +23,14 @@ TOKENIZER_DIR = config.models / "byte-level-bpe-tokenizer"
 PREPROCESSOR = config.models / "preprocessor" / "preprocessor.pkl"
 OUTPUT_DIR = config.output / "transformer"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def apply_log1p_with_offset(x, offset):
+    # Apply log1p with an offset to handle non-positive values
+    if offset is not None:
+        return np.log1p(np.maximum(x, 0.0)) + offset
+    else:
+        return x
 
 
 def load_model(args, settings):
