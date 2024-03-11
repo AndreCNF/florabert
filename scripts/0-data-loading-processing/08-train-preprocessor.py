@@ -1,5 +1,5 @@
-"""Training preprocessor for gene expression prediction.
-"""
+"""Training preprocessor for gene expression prediction."""
+
 import pickle
 from functools import reduce, partial
 
@@ -14,6 +14,7 @@ from module.florabert import config, utils
 DATA_DIR = config.data_final / "nam_data"
 TRAIN_DATA = "merged_seq_genex.csv"
 SAVE_PATH = config.models / "preprocessor" / "preprocessor.pkl"
+SAVE_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 
 def load_data(args):
@@ -27,6 +28,7 @@ def load_data(args):
         data = data[cond]
     return data
 
+
 def apply_log1p_with_offset(x, offset):
     # Apply log1p with an offset to handle non-positive values
     if offset is not None:
@@ -34,21 +36,25 @@ def apply_log1p_with_offset(x, offset):
     else:
         return x
 
+
 def load_preprocessor(args):
     steps = []
     if args.log_offset:
         # If you want to apply log and add an offset, you can do it for the entire DataFrame
         steps.append(FunctionTransformer(func=partial(np.add, args.log_offset)))
-        
-    log_offset = args.log_offset if hasattr(args, 'log_offset') else 0.0
+
+    log_offset = args.log_offset if hasattr(args, "log_offset") else 0.0
 
     # You may or may not need StandardScaler, depending on your specific use case
-    steps.append(FunctionTransformer(func=apply_log1p_with_offset, kw_args={"offset": log_offset}, validate=False))
+    steps.append(
+        FunctionTransformer(
+            func=apply_log1p_with_offset, kw_args={"offset": log_offset}, validate=False
+        )
+    )
     # if args.scale_data:
     steps.append(StandardScaler(with_mean=True, with_std=True))
 
     return make_pipeline(*steps)
-
 
 
 def fit_preprocessor(data, preprocessor):
