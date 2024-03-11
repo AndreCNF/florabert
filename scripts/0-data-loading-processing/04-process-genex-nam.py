@@ -10,6 +10,7 @@ OUTPUTS:
     - csv with promoter sequences, gene expression values, train/eval/test split, and metadata for all cultivars
     - train.tsv, eval.tsv, test.tsv for transformer modelling
 """
+
 import pickle
 from pathlib import PosixPath
 
@@ -222,6 +223,8 @@ def main():
             df_all_cultivars["fold"].isin(split), ["seq"] + config.tissues
         ]
         df_split = prepare_data_transformer(df_split)
+        save_path = OUTDIR_TRANSFORMER / f"{name}.tsv"
+        save_path.parent.mkdir(parents=True, exist_ok=True)
         df_split.to_csv(OUTDIR_TRANSFORMER / f"{name}.tsv", sep="\t", index=False)
 
 

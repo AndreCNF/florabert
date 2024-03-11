@@ -77,7 +77,7 @@ def main():
 
     # Save the folds to dict
     save_path = config.data_final / "nam_data" / "gene_data_folds.pkl"
-    save_path.mkdir(parents=True, exist_ok=True)
+    save_path.parent.mkdir(parents=True, exist_ok=True)
     with open(str(save_path), "wb") as pfile:
         pickle.dump(data_folds, pfile, protocol=pickle.HIGHEST_PROTOCOL)
     with open(str(save_path), "rb") as pfile:
