@@ -1,16 +1,17 @@
 """
-    Script used to divide the promoter sequences into train and test sets, splitting the training
-    data into 5 folds that could be used for cross-validation while taking into consideration
-    gene clusters based on identity similarity (refer to 05a-cluster-maize_seq.sh).
+Script used to divide the promoter sequences into train and test sets, splitting the training
+data into 5 folds that could be used for cross-validation while taking into consideration
+gene clusters based on identity similarity (refer to 05a-cluster-maize_seq.sh).
 
-    Inputs:
-        maize_nam.csv_cluster.tsv: clusters of genes associated with reference genes
+Inputs:
+    maize_nam.csv_cluster.tsv: clusters of genes associated with reference genes
 
-    Outputs:
-        gene_data_folds.pkl: a dictionary indicating train/test split and folds. Note, use
-                             `with open(str(save_path), 'rb') as pfile: data_folds = pickle.load(pfile)`
-                             to load the dict
+Outputs:
+    gene_data_folds.pkl: a dictionary indicating train/test split and folds. Note, use
+                         `with open(str(save_path), 'rb') as pfile: data_folds = pickle.load(pfile)`
+                         to load the dict
 """
+
 import pickle
 import pandas as pd
 import numpy as np
@@ -76,6 +77,7 @@ def main():
 
     # Save the folds to dict
     save_path = config.data_final / "nam_data" / "gene_data_folds.pkl"
+    save_path.mkdir(parents=True, exist_ok=True)
     with open(str(save_path), "wb") as pfile:
         pickle.dump(data_folds, pfile, protocol=pickle.HIGHEST_PROTOCOL)
     with open(str(save_path), "rb") as pfile:
