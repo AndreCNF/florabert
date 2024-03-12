@@ -608,6 +608,14 @@ def compute_mse(
         return np.mean((y_true - y_pred) ** 2)
 
 
+def apply_log1p_with_offset(x, offset):
+    # Apply log1p with an offset to handle non-positive values
+    if offset is not None:
+        return np.log1p(np.maximum(x, 0.0)) + offset
+    else:
+        return x
+
+
 def load_pickle(path: PosixPath) -> object:
     with path.open("rb") as f:
         obj = pickle.load(f)

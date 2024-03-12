@@ -29,14 +29,6 @@ def load_data(args):
     return data
 
 
-def apply_log1p_with_offset(x, offset):
-    # Apply log1p with an offset to handle non-positive values
-    if offset is not None:
-        return np.log1p(np.maximum(x, 0.0)) + offset
-    else:
-        return x
-
-
 def load_preprocessor(args):
     steps = []
     if args.log_offset:
@@ -48,7 +40,9 @@ def load_preprocessor(args):
     # You may or may not need StandardScaler, depending on your specific use case
     steps.append(
         FunctionTransformer(
-            func=apply_log1p_with_offset, kw_args={"offset": log_offset}, validate=False
+            func=utils.apply_log1p_with_offset,
+            kw_args={"offset": log_offset},
+            validate=False,
         )
     )
     # if args.scale_data:

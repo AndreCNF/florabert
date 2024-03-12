@@ -25,14 +25,6 @@ OUTPUT_DIR = config.output / "transformer"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def apply_log1p_with_offset(x, offset):
-    # Apply log1p with an offset to handle non-positive values
-    if offset is not None:
-        return np.log1p(np.maximum(x, 0.0)) + offset
-    else:
-        return x
-
-
 def load_model(args, settings):
     return tr.load_model(
         args.model_name,
